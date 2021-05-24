@@ -143,3 +143,19 @@ db.issues.aggregate([
   } }
 ])
 ```
+
+### Text Index API
+```
+db.issues.createIndex({ title: "text" })
+
+db.issues.find({ $text: {$search: "click" } })
+
+db.issues.getIndexes()
+
+db.issues.dropIndex('title_text')
+db.issues.createIndex({ title: "text", description: "text" })
+
+db.issues.find({ $text: {$search: "click" } })
+
+db.issues.find({ $text: {$search: "clic" } })
+```
